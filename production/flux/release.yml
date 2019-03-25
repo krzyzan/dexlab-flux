@@ -1,0 +1,32 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: flux
+  namespace: flux
+  annotations:
+    flux.weave.works/automated: "false"
+spec:
+  releaseName: flux
+  chart:
+    repository: https://weaveworks.github.io/flux/
+    name: flux
+    version: 0.6.2
+  values:
+    image:
+      repository: quay.io/weaveworks/flux
+      tag: 1.11.0
+    helmOperator:
+      create: true
+      createCRD: false
+      chartsSyncInterval: "1m"
+    git:
+      url: "git@github.com:krzyzan/dexlab-flux"
+      branch: "production"
+      path: "common,production"
+      label: "flux-sync-production"
+      pollInterval: "1m"
+    registry:
+      excludeImage: "*metallb*"
+    additionalArgs:
+    - --sync-garbage-collection
