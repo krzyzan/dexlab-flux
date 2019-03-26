@@ -22,3 +22,5 @@ spec:
         enabled: true
         additionalLabels:
           release: prometheus-operator
+      extraArgs:
+        default-ssl-certificate: nginx-ingress/prd-dexlab-tk-tls
