@@ -1,0 +1,19 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: cert-manager
+  namespace: cert-manager
+  annotations:
+    flux.weave.works/automated: "false"
+spec:
+  releaseName: cert-manager
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: cert-manager
+    version: 0.6.6
+  values:
+    podDnsConfig:
+      nameservers:
+      - "8.8.8.8"
+      - "1.1.1.1"
