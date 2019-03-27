@@ -55,7 +55,7 @@ spec:
       endpoints:
       - 10.10.10.21
       serviceMonitor:
-        insecureSkipVerify: true
+        scheme: https
         serverName: localhost
         caFile: "/etc/prometheus/secrets/etcd-client-cert/kube-ca.pem"
         certFile: "/etc/prometheus/secrets/etcd-client-cert/kube-node.pem"

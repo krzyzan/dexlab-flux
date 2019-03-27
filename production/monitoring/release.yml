@@ -59,7 +59,7 @@ spec:
       - 10.10.10.12
       - 10.10.10.13
       serviceMonitor:
-        insecureSkipVerify: true
+        scheme: https
         serverName: localhost
         caFile: "/etc/prometheus/secrets/etcd-client-cert/kube-ca.pem"
         certFile: "/etc/prometheus/secrets/etcd-client-cert/kube-node.pem"
