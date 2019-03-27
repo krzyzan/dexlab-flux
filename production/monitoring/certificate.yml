@@ -1,0 +1,22 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: prd-dexlab-tk
+  namespace: monitoring
+spec:
+  secretName: prd-dexlab-tk-tls
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  dnsNames:
+  - alertmanager.prd.dexlab.tk
+  - grafana.prd.dexlab.tk
+  - prometheus.prd.dexlab.tk
+  acme:
+    config:
+    - dns01:
+        provider: cf-dns
+      domains:
+      - alertmanager.prd.dexlab.tk
+      - grafana.prd.dexlab.tk
+      - prometheus.prd.dexlab.tk

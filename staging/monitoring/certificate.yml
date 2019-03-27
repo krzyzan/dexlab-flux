@@ -1,0 +1,22 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: stg-dexlab-tk
+  namespace: monitoring
+spec:
+  secretName: stg-dexlab-tk-tls
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  dnsNames:
+  - alertmanager.stg.dexlab.tk
+  - grafana.stg.dexlab.tk
+  - prometheus.stg.dexlab.tk
+  acme:
+    config:
+    - dns01:
+        provider: cf-dns
+      domains:
+      - alertmanager.stg.dexlab.tk
+      - grafana.stg.dexlab.tk
+      - prometheus.stg.dexlab.tk

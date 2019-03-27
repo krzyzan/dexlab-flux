@@ -20,6 +20,10 @@ spec:
           kubernetes.io/ingress.class: nginx
         hosts:
         - alertmanager.prd.dexlab.tk
+        tls:
+        - secretName: prd-dexlab-tk-tls
+          hosts:
+          - alertmanager.prd.dexlab.tk
       alertmanagerSpec:
         storage:
           volumeClaimTemplate:
@@ -38,6 +42,10 @@ spec:
           kubernetes.io/ingress.class: nginx
         hosts:
         - grafana.prd.dexlab.tk
+        tls:
+        - secretName: prd-dexlab-tk-tls
+          hosts:
+          - grafana.prd.dexlab.tk
       persistence:
         enabled: true
         storageClassName: thin-disk
@@ -77,6 +85,10 @@ spec:
           kubernetes.io/ingress.class: nginx
         hosts:
         - prometheus.prd.dexlab.tk
+        tls:
+        - secretName: prd-dexlab-tk-tls
+          hosts:
+          - prometheus.prd.dexlab.tk
       prometheusSpec:
         secrets:
         - etcd-client-cert
