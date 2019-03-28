@@ -1,0 +1,24 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: redis-ha
+  namespace: guestbook
+  annotations:
+    flux.weave.works/automated: "false"
+spec:
+  releaseName: redis-ha
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: redis-ha
+    version: 3.3.3
+  values:
+    replicas: 1
+    sentinel:
+      quorum: 1
+    redis:
+      config:
+        min-slaves-to-write: 0
+    persistentVolume:
+      storageClass: "thin-disk"
+      size: 1Gi
