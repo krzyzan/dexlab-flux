@@ -22,3 +22,5 @@ spec:
     persistentVolume:
       storageClass: "thin-disk"
       size: 1Gi
+    exporter:
+      enabled: true
