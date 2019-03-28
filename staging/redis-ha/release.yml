@@ -1,0 +1,19 @@
+---
+apiVersion: flux.weave.works/v1beta1
+kind: HelmRelease
+metadata:
+  name: redis-ha
+  namespace: redis-ha
+  annotations:
+    flux.weave.works/automated: "false"
+spec:
+  releaseName: redis-ha
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com/
+    name: redis-ha
+    version: 3.3.3
+  values:
+    replicas: 1
+    persistentVolume:
+      storageClass: "thin-disk"
+      size: 1Gi
