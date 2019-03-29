@@ -10,8 +10,8 @@ for CONTEXT in minikube staging production; do
     --kube-context $CONTEXT --namespace flux \
     --set helmOperator.create=true \
     --set helmOperator.createCRD=false \
-    --set helmOperator.chartsSyncInterval=1m \
-    --set git.pollInterval=1m \
+    --set helmOperator.chartsSyncInterval=2m \
+    --set git.pollInterval=2m \
     --set git.url=git@github.com:${REPO} \
     --set git.path="common\,${CONTEXT}" \
     --set git.branch=${CONTEXT} \
