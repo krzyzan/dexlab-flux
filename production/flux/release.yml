@@ -19,13 +19,13 @@ spec:
     helmOperator:
       create: true
       createCRD: false
-      chartsSyncInterval: "1m"
+      chartsSyncInterval: "2m"
     git:
       url: "git@github.com:krzyzan/dexlab-flux"
       branch: "production"
       path: "common,production"
       label: "flux-sync-production"
-      pollInterval: "1m"
+      pollInterval: "2m"
     registry:
       excludeImage: "*metallb*"
     additionalArgs:
