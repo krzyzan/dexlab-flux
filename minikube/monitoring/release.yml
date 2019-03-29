@@ -68,6 +68,8 @@ spec:
           hosts:
           - prometheus.dev.dexlab.tk
       prometheusSpec:
+        scrapeInterval: "1m"
+        evaluationInterval: "1m"
         retention: 1d
         storageSpec:
           volumeClaimTemplate:

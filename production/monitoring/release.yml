@@ -90,6 +90,8 @@ spec:
           hosts:
           - prometheus.prd.dexlab.tk
       prometheusSpec:
+        scrapeInterval: "1m"
+        evaluationInterval: "1m"
         secrets:
         - etcd-client-cert
         retention: 1d
