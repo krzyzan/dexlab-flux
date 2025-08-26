@@ -1,4 +1,4 @@
-apiVersion: flux.weave.works/v1beta1
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: sealed-secrets
@@ -6,12 +6,11 @@ metadata:
   annotations:
     flux.weave.works/automated: "false"
 spec:
-  releaseName: sealed-secrets
   chart:
-    repository: https://kubernetes-charts.storage.googleapis.com/
-    name: sealed-secrets
-    version: 1.0.1
-  values:
-    image:
-      repository: quay.io/bitnami/sealed-secrets-controller
-      tag: v0.7.0
+    spec:
+      chart: sealed-secrets
+      version: 2.17.4
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
